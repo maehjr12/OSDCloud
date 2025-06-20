@@ -20,8 +20,8 @@ Enable Wifi support (require Winre)
 Specify the workspace location 
 .PARAMETER WebPSScript
 Specify the WebPSScript URL
-.PARAMETER WebPSScriptGaetan
-Use the Gaëtan Demo WebPSScript 
+.PARAMETER WebPSScriptws1
+Use the ws1 Demo WebPSScript 
 .PARAMETER Wallpaper
 Specify the wallpaper to inject in the Boot image C:\OSDCloud\Wallpaper.jpg 
 .PARAMETER BuildISO
@@ -29,12 +29,12 @@ Build ISOs
 .PARAMETER BuildUSB
 Build USB dongle
 .EXAMPLE
-.\Starter-OSDCloud.ps1 -ADK -New -Workspace C:\OSDCloud -WebPSScriptGaetan -Wallpaper C:\Tmp\DellServices2021_HQ.jpg -BuildISO
+.\Starter-OSDCloud.ps1 -ADK -New -Workspace C:\OSDCloud -WebPSScriptws1 -Wallpaper C:\Tmp\DellServices2021_HQ.jpg -BuildISO
 - Download and install ADK and WinPe Addon (version 10.1.22000.1)
 - Install module OSD (-new = force module installation)
 - Create a new OSDCloud Workspace to C:\OSDCloud
-- Inject my custom WebPSScript (https://raw.githubusercontent.com/gvillant/OSDCloud/main/Gaetan-OSDCloud.ps1)
-- Set the Dell Services Wallpaper
+- Inject my custom WebPSScript (https://raw.githubusercontent.com/maehjr12/OSDCloud/main/ws1-OSDCloud.ps1)
+- Set the Services Wallpaper
 - Build ISOs (one with prompt, one without prompt)
 .EXAMPLE
 .\Starter-OSDCloud.ps1 -ADK -New -Workspace C:\OSDCloud -BuildUSB
@@ -47,7 +47,7 @@ param (
     [switch]$WifiSupport,
     [string]$Workspace,
     [string]$WebPSScript,
-    [switch]$WebPSScriptGaetan,
+    [switch]$WebPSScriptWs1,
     [string]$Wallpaper,
     [switch]$BuildISO,
     [switch]$BuildUSB
@@ -107,10 +107,10 @@ if($WebPSScript){
     $Params["WebPSScript"] = $WebPSScript 
 }
 
-if($WebPSScriptGaetan){
-    $CustomGaetanURL = "https://raw.githubusercontent.com/gvillant/OSDCloud/main/Gaetan-OSDCloud.ps1"
-    Write-Host "Will use custom WebPSScript: $CustomGaetanURL"
-    $Params["WebPSScript"] = $CustomGaetanURL
+if($WebPSScriptWs1){
+    $CustomWS1URL = "https://raw.githubusercontent.com/maehjr12/OSDCloud/main/ws1-OSDCloud.ps1"
+    Write-Host "Will use custom WebPSScript: $CustomWs1URL"
+    $Params["WebPSScript"] = $CustomWs1URL
 }
 
 if($Wallpaper){
