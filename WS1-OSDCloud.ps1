@@ -51,7 +51,7 @@ function Create-WinREPartition {
 	sleep -seconds 5
 }
 
-function Install-WS1DropShipOnline33 {
+function Install-WS1DropShipOnline {
     $GenericPPKGURL = "http://192.168.1.57:8888/_WS1/GenericPPKG_3-3.zip"
     $AuditUnattendXML = "https://raw.githubusercontent.com/maehjr12/OSDCloud/main/unattend_ws1_DropShip.xml"
     $GenericPPKGDestPath = "C:\Dropship"
